@@ -19,15 +19,15 @@ def main():
     target = train_sample["booking_bool"].values
 
     print("Training the Classifier")
-    classifier = RandomForestClassifier(n_estimators=50, 
+    classifier = RandomForestClassifier(n_estimators=50,
                                         verbose=2,
                                         n_jobs=1,
                                         min_samples_split=10,
                                         random_state=1)
     classifier.fit(features, target)
-    
+
     print("Saving the classifier")
     data_io.save_model(classifier)
-    
+
 if __name__=="__main__":
     main()
