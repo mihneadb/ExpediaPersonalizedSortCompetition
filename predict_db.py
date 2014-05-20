@@ -26,8 +26,8 @@ def compute_score(prop_id):
     for position in positions:
         score += 5 + (10.0 / position) - math.log(position, 2)
 
-    score += bookings * 4
-    score += clicks * 1.5
+    score += bookings * 20
+    score += clicks * 5
 
     return score
 
@@ -55,9 +55,9 @@ results = open(sys.argv[2], 'w')
 results.write('SearchId,PropertyId\n')
 
 ### TIMING STUFF
-#count = 0
-#since = time.time()
-#TOTAL_ROWS = 6622630
+count = 0
+since = time.time()
+TOTAL_ROWS = 6622630
 
 # read chunks of search queries
 current_id = None
@@ -77,15 +77,15 @@ with open(sys.argv[1]) as f:
                     results.write('%d,%d\n' % (i_srch_id, i_prop_id))
 
                 #### TIMING STUFF
-                #count += len(processed_chunk)
-                #if count >= 100000:
-                    #t = time.time()
-                    #s = t - since
-                    #since = t
-                    #per_hour = 3600.0 / s * count
-                    #print("Did 100000 rows in %.2f seconds. That is %d rows per hour. Got %d rows left, so %.2f hours." % (s, per_hour, TOTAL_ROWS - count, (TOTAL_ROWS - count) / per_hour))
-                    #TOTAL_ROWS -= count
-                    #count = 0
+                count += len(processed_chunk)
+                if count >= 100000:
+                    t = time.time()
+                    s = t - since
+                    since = t
+                    per_hour = 3600.0 / s * count
+                    print("Did 100000 rows in %.2f seconds. That is %d rows per hour. Got %d rows left, so %.2f hours." % (s, per_hour, TOTAL_ROWS - count, (TOTAL_ROWS - count) / per_hour))
+                    TOTAL_ROWS -= count
+                    count = 0
 
             # start working on the next chunk
             current_id = srch_id
