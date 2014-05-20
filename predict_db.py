@@ -26,8 +26,8 @@ def compute_score(prop_id):
     for position in positions:
         score += 5 + (10.0 / position) - math.log(position, 2)
 
-    score += bookings * 20
-    score += clicks * 5
+    score += bookings * 45
+    score += clicks * 15
 
     return score
 
