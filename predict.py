@@ -4,7 +4,7 @@ def main():
     print("Reading test data")
     test = data_io.read_test()
     test.fillna(0, inplace=True)
-    
+
     feature_names = list(test.columns)
     feature_names.remove("date_time")
 
