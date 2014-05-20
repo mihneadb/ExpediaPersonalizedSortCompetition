@@ -12,21 +12,22 @@ collection = db.training_set
 
 
 def compute_score(prop_id):
-    docs = collection.find({'prop_id': prop_id}, fields=['position', 'booking_bool'], exhaust=True)
+    docs = collection.find({'prop_id': prop_id}, fields=['position', 'booking_bool', 'click_bool'], exhaust=True)
+    score = 0
 
-    # previous positions
     positions = []
+    bookings = 0
+    clicks = 0
     for doc in docs:
         positions.append(doc['position'])
-    score = 0
+        bookings += doc['booking_bool']
+        clicks += doc['click_bool']
+
     for position in positions:
         score += 5 + (10.0 / position) - math.log(position, 2)
 
-    # was it booked before?
-    bookings = 0
-    for doc in docs:
-        bookings += doc['booking_bool']
-    score += bookings * 3
+    score += bookings * 4
+    score += clicks * 1.5
 
     return score
 
