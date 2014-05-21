@@ -8,7 +8,7 @@ from pprint import pprint
 
 client = MongoClient()
 db = client.data_mining_db
-collection = db.training_set
+collection = db.big_training_set
 
 
 def compute_score(prop_id):
