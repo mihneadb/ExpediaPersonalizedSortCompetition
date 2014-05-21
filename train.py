@@ -6,7 +6,7 @@ def main():
     train = data_io.read_train()
     train.fillna(0, inplace=True)
 
-    train_sample = train[:100000].fillna(value=0)
+    train_sample = train[:1000000].fillna(value=0)
 
     feature_names = list(train_sample.columns)
     feature_names.remove("click_bool")
@@ -21,7 +21,7 @@ def main():
     print("Training the Classifier")
     classifier = GradientBoostingClassifier(n_estimators=200,
                                         verbose=2,
-                                        min_samples_split=10,
+                                        min_samples_split=7,
                                         random_state=1)
     classifier.fit(features, target)
 
