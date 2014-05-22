@@ -7,7 +7,8 @@ def main():
     train.fillna(0, inplace=True)
 
     #train_sample = train.fillna(value=-2)
-    train_sample = train[:2500000].fillna(value=0)
+    #train_sample = train[:2500000].fillna(value=0)
+    train_sample = train[:100000].fillna(value=0)
     #train_sample = train.fillna(value=0)
 
     feature_names = list(train_sample.columns)
