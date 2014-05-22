@@ -20,12 +20,13 @@ def main():
     feature_names.remove("position")
 
     features = train_sample[feature_names].values
-    #trin_sample["position"] *= -1.0
+    #train_sample["position"] *= -1.0
     #target = train_sample["position"].values
-    target = train_sample["booking_bool"].values
+    #target = train_sample["booking_bool"].values
+    target = train_sample["click_bool"].values
 
     print("Training the Classifier")
-    classifier = GradientBoostingClassifier(n_estimators=50,
+    classifier = GradientBoostingClassifier(n_estimators=100,
                                         verbose=2,
                                         min_samples_split=10,
                                         random_state=1)
