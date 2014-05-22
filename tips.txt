@@ -1,0 +1,11 @@
+reduce number of "negative instances" (not booked/clicked) ---- tried, it did not help. Working with more data, just in the order from the file, yielded better results.
+use negative values for missing data - use 1 mil for training, 500k with no bookings/clicks, 500k with
+price diff from recent - diff between hotel price and recent price (diff between log(price_usd) and historical price)
+position
+price - normalize price; divide price per night to number of persons; take log of it; compute mean, and then for every one do (price - mean) / std_dev
+location desirability
+try using a small number of features - price, difference for historical price,  position, loc2, click, book, children_count, affinity_score, hist_starrating, prop_starrating, prop_reviewscore, promotion, srch_destination_id, prop_id, visitor_hist_adr_usd
+maybe also: brand_bool
+
+
+lambdamart
