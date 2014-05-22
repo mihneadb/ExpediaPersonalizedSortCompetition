@@ -6,7 +6,9 @@ def main():
     train = data_io.read_train()
     train.fillna(0, inplace=True)
 
-    train_sample = train[:1000000].fillna(value=0)
+    #train_sample = train.fillna(value=-2)
+    train_sample = train[:2500000].fillna(value=0)
+    #train_sample = train.fillna(value=0)
 
     feature_names = list(train_sample.columns)
     feature_names.remove("click_bool")
@@ -16,12 +18,14 @@ def main():
     feature_names.remove("position")
 
     features = train_sample[feature_names].values
+    #trin_sample["position"] *= -1.0
+    #target = train_sample["position"].values
     target = train_sample["booking_bool"].values
 
     print("Training the Classifier")
-    classifier = GradientBoostingClassifier(n_estimators=200,
+    classifier = GradientBoostingClassifier(n_estimators=50,
                                         verbose=2,
-                                        min_samples_split=7,
+                                        min_samples_split=10,
                                         random_state=1)
     classifier.fit(features, target)
 
