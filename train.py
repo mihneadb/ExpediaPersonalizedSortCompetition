@@ -4,11 +4,12 @@ from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 def main():
     print("Reading training data")
     train = data_io.read_train()
-    train.fillna(0, inplace=True)
+
+    train.fillna(-1, inplace=True)
 
     #train_sample = train.fillna(value=-2)
     #train_sample = train[:2500000].fillna(value=0)
-    train_sample = train[:100000].fillna(value=0)
+    train_sample = train[:100000]
     #train_sample = train.fillna(value=0)
 
     feature_names = list(train_sample.columns)
