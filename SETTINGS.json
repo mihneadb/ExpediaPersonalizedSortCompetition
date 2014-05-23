@@ -1,6 +1,7 @@
 {
-    "model_path":      "/home/mihnea/localCode/VU/DMT/ass2/benchmark/model.pickle",
+    "model_booking_path":      "/home/mihnea/localCode/VU/DMT/ass2/benchmark/model_booking.pickle",
+    "model_click_path":      "/home/mihnea/localCode/VU/DMT/ass2/benchmark/model_click.pickle",
     "submission_path": "/home/mihnea/localCode/VU/DMT/ass2/benchmark/results.csv",
-    "train_path":      "/home/mihnea/localCode/VU/DMT/ass2/benchmark/train.csv",
-    "test_path":       "/home/mihnea/localCode/VU/DMT/ass2/benchmark/test.csv"
+    "train_path":      "/home/mihnea/localCode/VU/DMT/ass2/benchmark/train_small_fe2.csv",
+    "test_path":       "/home/mihnea/localCode/VU/DMT/ass2/benchmark/test_fe2.csv"
 }

@@ -4,6 +4,7 @@ import os
 import json
 import pickle
 import pandas as pd
+import numpy as np
 
 def get_paths():
     paths = json.loads(open("SETTINGS.json").read())
@@ -19,12 +20,12 @@ def read_test():
     test_path = get_paths()["test_path"]
     return pd.read_csv(test_path)
 
-def save_model(model):
-    out_path = get_paths()["model_path"]
+def save_model(model, kind):
+    out_path = get_paths()["model_%s_path" % kind]
     pickle.dump(model, open(out_path, "w"))
 
-def load_model():
-    in_path = get_paths()["model_path"]
+def load_model(kind):
+    in_path = get_paths()["model_%s_path" % kind]
     return pickle.load(open(in_path))
 
 def write_submission(recommendations, submission_file=None):
