@@ -45,7 +45,7 @@ def main():
     target = train_sample["click_bool"].values
 
     print("Training the Classifier")
-    classifier = GradientBoostingClassifier(n_estimators=100,
+    classifier = GradientBoostingClassifier(n_estimators=80,
                                         verbose=2,
                                         min_samples_split=10,
                                         random_state=1)
