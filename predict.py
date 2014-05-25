@@ -16,7 +16,7 @@ class EnsembleClassifier(BaseEstimator, ClassifierMixin):
         for classifier in self.classifiers:
             self.predictions_.append(classifier.predict_proba(X))
         # booking is first, click is second
-        return np.average(self.predictions_, axis=0, weights=[0.15, 0.85])
+        return np.average(self.predictions_, axis=0, weights=[0.25, 0.75])
         #return np.sum(self.predictions_, axis=0)
 
 def main():
@@ -26,6 +26,19 @@ def main():
 
     feature_names = list(test.columns)
     feature_names.remove("date_time")
+
+    #feature_names.remove('price_diff')
+    #feature_names.remove('price_person')
+    feature_names.remove('star_diff')
+    #feature_names.remove('pay_diff')
+    feature_names.remove('price_night')
+    feature_names.remove('loc_desire')
+    feature_names.remove('no_kids')
+    feature_names.remove('couple')
+    feature_names.remove('price_down')
+    feature_names.remove('same_country')
+
+    #feature_names.remove('prop_location_score1')
 
     #feature_names = [
         #'srch_id',

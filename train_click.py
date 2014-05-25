@@ -5,11 +5,11 @@ def main():
     print("Reading training data")
     train = data_io.read_train()
 
-    train.fillna(-1, inplace=True)
+    train.fillna(-2, inplace=True)
 
     #train_sample = train.fillna(value=-2)
-    #train_sample = train[:2500000].fillna(value=0)
-    train_sample = train[:100000]
+    train_sample = train[:4000000]
+    #train_sample = train[:100000]
     #train_sample = train.fillna(value=0)
 
     #feature_names = [
@@ -37,6 +37,19 @@ def main():
     feature_names.remove("gross_bookings_usd")
     feature_names.remove("date_time")
     feature_names.remove("position")
+
+    #feature_names.remove('price_diff')
+    #feature_names.remove('price_person')
+    feature_names.remove('star_diff')
+    #feature_names.remove('pay_diff')
+    feature_names.remove('price_night')
+    feature_names.remove('loc_desire')
+    feature_names.remove('no_kids')
+    feature_names.remove('couple')
+    feature_names.remove('price_down')
+    feature_names.remove('same_country')
+
+    #feature_names.remove('prop_location_score1')
 
     features = train_sample[feature_names].values
     #train_sample["position"] *= -1.0

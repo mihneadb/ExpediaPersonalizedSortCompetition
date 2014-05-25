@@ -7,5 +7,8 @@ location desirability
 try using a small number of features - price, difference for historical price,  position, loc2, click, book, children_count, affinity_score, hist_starrating, prop_starrating, prop_reviewscore, promotion, srch_destination_id, prop_id, visitor_hist_adr_usd
 maybe also: brand_bool
 
+diff between star rating of user and hotel star rating
+diff between what user is used to paying and price
+
 
 lambdamart
