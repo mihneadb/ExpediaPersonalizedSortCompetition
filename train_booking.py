@@ -8,7 +8,7 @@ def main():
     train.fillna(-2, inplace=True)
 
     #train_sample = train.fillna(value=-2)
-    train_sample = train[:4000000]
+    train_sample = train
     #train_sample = train[:100000]
     #train_sample = train.fillna(value=0)
 

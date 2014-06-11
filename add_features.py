@@ -7,10 +7,14 @@ import sys
 def process_item(item):
     new_item = item.copy()
 
-    if new_item['price_usd'] in ['0', '0.0', 'NULL']:
+    if new_item['price_usd'] in ['0', '0.0', 'NULL'] or float(new_item['price_usd']) in [0, 0.0]:
         new_item['price_diff'] = 0.0
     else:
-        new_item['price_diff'] = math.log(float(new_item['price_usd'])) - float(new_item['prop_log_historical_price'])
+        try:
+            new_item['price_diff'] = math.log(float(new_item['price_usd'])) - float(new_item['prop_log_historical_price'])
+        except:
+            print new_item['price_usd']
+            sys.exit()
 
     if new_item['price_usd'] in ['0', '0.0', 'NULL']:
         new_item['price_person'] = 0.0
